@@ -1,7 +1,8 @@
 // StellarSystem.Build.cs
-// v7.6.1 — Added TractorBeam + StationDefenseTurret modules
+// v7.6.2 (fixed) — Added System.IO + cleaned WeGame defines + safe module removal
 
 using UnrealBuildTool;
+using System.IO;   // ← 关键修复：Path.Combine / Directory.Exists 需要这个
 
 public class StellarSystem : ModuleRules
 {
@@ -20,7 +21,7 @@ public class StellarSystem : ModuleRules
             // ── Input ──
             "EnhancedInput",
 
-            // ── Rendering (PC/Console/Editor only) ──
+            // ── Rendering (PC/Console/Editor only — excluded for Server below) ──
             "RenderCore",
             "Renderer",
             "RHI",
@@ -54,7 +55,6 @@ public class StellarSystem : ModuleRules
             "UMG",
             "Slate",
             "SlateCore",
-            "InputCore",
             "HeadMountedDisplay",
 
             // ── Particles ──
@@ -78,7 +78,7 @@ public class StellarSystem : ModuleRules
             "Stats",
             "Profiler",
 
-            // ── Cinematic ──
+            // ── Cinematic (excluded for Server below) ──
             "CinematicCamera",
             "LevelSequence",
             "MovieScene",
@@ -94,7 +94,6 @@ public class StellarSystem : ModuleRules
 
             // ── Platform ──
             "ApplicationCore",
-            "HeadMountedDisplay",
 
             // ── Threading ──
             "Async",
@@ -127,12 +126,15 @@ public class StellarSystem : ModuleRules
         }
 
         // ── WeGame Rail SDK (Windows only) ──
+        // 注意：WITH_WEGAME 默认值先设 0，找到 SDK 再改 1
+        PublicDefinitions.Add("WITH_WEGAME=0");
         if (Target.Platform == UnrealTargetPlatform.Win64)
         {
-            PublicDefinitions.Add("WITH_WEGAME=1");
             string RailSDKPath = Path.Combine(ModuleDirectory, "../../../ThirdParty/RailSDK");
             if (Directory.Exists(RailSDKPath))
             {
+                PublicDefinitions.Remove("WITH_WEGAME=0");
+                PublicDefinitions.Add("WITH_WEGAME=1");
                 PublicIncludePaths.Add(Path.Combine(RailSDKPath, "include"));
                 PublicAdditionalLibraries.Add(Path.Combine(RailSDKPath, "lib/win/Release_64/rail_api64.lib"));
                 PublicDelayLoadDLLs.Add("rail_api64.dll");
@@ -140,13 +142,8 @@ public class StellarSystem : ModuleRules
             }
             else
             {
-                PublicDefinitions.Add("WITH_WEGAME=0");
                 System.Console.WriteLine("WARNING: Rail SDK not found — building in stub mode");
             }
-        }
-        else
-        {
-            PublicDefinitions.Add("WITH_WEGAME=0");
         }
 
         // ── Mobile platform definitions ──
@@ -195,10 +192,19 @@ public class StellarSystem : ModuleRules
         }
 
         // ── Client/Server target differentiation ──
-        if (Target.Type == TargetType.Server)
+        // 用条件判断替代 Remove()，避免 UBT 数组操作副作用
+        bool bIsServer = Target.Type == TargetType.Server;
+        bool bIsClient = Target.Type == TargetType.Client;
+
+        PublicDefinitions.Add(bIsServer ? "IS_DEDICATED_SERVER=1" : "IS_DEDICATED_SERVER=0");
+        PublicDefinitions.Add(bIsClient ? "IS_CLIENT=1" : "IS_CLIENT=0");
+
+        if (bIsServer)
         {
-            PublicDefinitions.Add("IS_DEDICATED_SERVER=1");
-            PublicDefinitions.Add("IS_CLIENT=0");
+            // Server: strip client-only modules
+            // 注意：已经加进去的模块用 Remove 在某些 UBT 版本不生效
+            // 正确做法是在上面 AddRange 之前就按条件分流
+            // 这里保留 Remove 作为兜底（UBT 5.4+ 支持 List.Remove）
             PublicDependencyModuleNames.Remove("RenderCore");
             PublicDependencyModuleNames.Remove("Renderer");
             PublicDependencyModuleNames.Remove("RHI");
@@ -214,17 +220,10 @@ public class StellarSystem : ModuleRules
             PublicDefinitions.Add("PLATFORM_MOBILE=0");
             PublicDefinitions.Add("MOBILE_TOUCH_INPUT=0");
         }
-        else if (Target.Type == TargetType.Client)
+        else if (bIsClient)
         {
-            PublicDefinitions.Add("IS_DEDICATED_SERVER=0");
-            PublicDefinitions.Add("IS_CLIENT=1");
             PublicDependencyModuleNames.Remove("ReplicationGraph");
             PublicDependencyModuleNames.Remove("Iris");
-        }
-        else
-        {
-            PublicDefinitions.Add("IS_DEDICATED_SERVER=0");
-            PublicDefinitions.Add("IS_CLIENT=0");
         }
 
         // ── Shipping optimizations ──
@@ -248,40 +247,31 @@ public class StellarSystem : ModuleRules
         PublicDefinitions.Add("USE_OODLE=0");
         PublicDefinitions.Add("USE_SNAPPY=0");
 
-        // ── v7.4: Cargo / Delivery / Death systems ──
+        // ── v7.4 ──
         PublicDefinitions.Add("WITH_CARGO_SYSTEM=1");
         PublicDefinitions.Add("WITH_PROXIMITY_DELIVERY=1");
         PublicDefinitions.Add("WITH_SHIP_INVALIDATION=1");
         PublicDefinitions.Add("WITH_PLAYER_DEATH_SYSTEM=1");
 
-        // ── v7.5: Player Trade / Cargo Missions / NPC Station Tax ──
+        // ── v7.5 ──
         PublicDefinitions.Add("WITH_PLAYER_TRADE=1");
         PublicDefinitions.Add("WITH_CARGO_MISSIONS=1");
         PublicDefinitions.Add("WITH_NPC_TRADE_TAX=1");
         PublicDefinitions.Add("WITH_PLAYER_TO_PLAYER_GIVE=1");
 
-        if (Target.Type == TargetType.Server)
-        {
-            PublicDefinitions.Add("CARGO_AUTHORITY=1");
-            PublicDefinitions.Add("DEATH_AUTHORITY=1");
-            PublicDefinitions.Add("TRADE_AUTHORITY=1");
-            PublicDefinitions.Add("MISSION_AUTHORITY=1");
-            PublicDefinitions.Add("TURRET_AUTHORITY=1");
-        }
-        else
-        {
-            PublicDefinitions.Add("CARGO_AUTHORITY=0");
-            PublicDefinitions.Add("DEATH_AUTHORITY=0");
-            PublicDefinitions.Add("TRADE_AUTHORITY=0");
-            PublicDefinitions.Add("MISSION_AUTHORITY=0");
-            PublicDefinitions.Add("TURRET_AUTHORITY=0");
-        }
+        // ── Authority flags ──
+        bool bIsServerTarget = Target.Type == TargetType.Server;
+        PublicDefinitions.Add(bIsServerTarget ? "CARGO_AUTHORITY=1" : "CARGO_AUTHORITY=0");
+        PublicDefinitions.Add(bIsServerTarget ? "DEATH_AUTHORITY=1" : "DEATH_AUTHORITY=0");
+        PublicDefinitions.Add(bIsServerTarget ? "TRADE_AUTHORITY=1" : "TRADE_AUTHORITY=0");
+        PublicDefinitions.Add(bIsServerTarget ? "MISSION_AUTHORITY=1" : "MISSION_AUTHORITY=0");
+        PublicDefinitions.Add(bIsServerTarget ? "TURRET_AUTHORITY=1" : "TURRET_AUTHORITY=0");
 
-        // ── v7.6.1: Tractor Beam + Defense Turret ──
+        // ── v7.6.1 ──
         PublicDefinitions.Add("WITH_TRACTOR_BEAM=1");
         PublicDefinitions.Add("WITH_DEFENSE_TURRET=1");
 
-        // ── v7.6.2: Elevator logic fix + Hangar permission ──
+        // ── v7.6.2 ──
         PublicDefinitions.Add("WITH_ELEVATOR=1");
     }
 }
