@@ -1,12 +1,12 @@
 // StellarSystemIOS.Target.cs
-// v7.2 — iOS-specific build target
+// v7.6.2 (fixed) — iOS-specific build target
 
 using UnrealBuildTool;
 using System.Collections.Generic;
 
 public class StellarSystemIOS : TargetRules
 {
-    public StellarSystemIOS(TargetInfo Target) : base(Target)
+    public StellarSystemIOS(ReadOnlyTargetRules Target) : base(Target)
     {
         Type = TargetType.Game;
         DefaultBuildSettings = BuildSettingsVersion.Latest;
@@ -18,12 +18,11 @@ public class StellarSystemIOS : TargetRules
         bUseUnityBuild = true;
         bUseAdaptiveUnityBuild = true;
 
-        // Metal is the only supported renderer on iOS
-        // A8+ devices (64-bit only)
+        // ARM64 only (A8+)
         AdditionalCompilerArguments = "-arch arm64";
 
         // Strip symbols in shipping
-        if (Configuration == UnrealTargetConfiguration.Shipping)
+        if (Target.Configuration == UnrealTargetConfiguration.Shipping)
         {
             AdditionalLinkerArguments = "-dead_strip";
         }
