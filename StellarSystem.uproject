@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "5.3",
+	"EngineAssociation": "5.7",
 	"Category": "Games",
 	"Description": "StellarSystem v7.2 - Mobile Edition (Android + iOS)",
 	"Modules": [
@@ -46,12 +46,16 @@
 		{
 			"Name": "OnlineSubsystemGooglePlay",
 			"Enabled": false,
-			"SupportedTargetPlatforms": ["Android"]
+			"SupportedTargetPlatforms": [
+				"Android"
+			]
 		},
 		{
 			"Name": "OnlineSubsystemIOS",
 			"Enabled": false,
-			"SupportedTargetPlatforms": ["IOS"]
+			"SupportedTargetPlatforms": [
+				"IOS"
+			]
 		}
 	]
 }

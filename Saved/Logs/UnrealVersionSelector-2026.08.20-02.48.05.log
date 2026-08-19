@@ -1,0 +1,111 @@
+Log started at 08/20/2026 02:48:06 (2026-08-19T18:48:06Z)
+Resolved project argument G:/GitHub/myproject/StellarSystem.uproject to G:\GitHub\myproject\StellarSystem.uproject
+No config file at C:\ProgramData\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+No config file at C:\Users\HASEE\AppData\Local\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+No config file at C:\Users\HASEE\Documents\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Configuration will be read from:
+  C:\Users\HASEE\AppData\Roaming\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+No project scope config file at G:\GitHub\myproject\Saved\UnrealBuildTool\BuildConfiguration.xml. Creating default.
+Reading configuration file from: C:\Users\HASEE\AppData\Roaming\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from: G:\GitHub\myproject\Saved\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from: C:\Users\HASEE\AppData\Local\UnrealEngine\Intermediate\Build\UnrealBuildTool.Env.BuildConfiguration.xml
+Log file: G:\GitHub\myproject\Saved\Logs\UnrealVersionSelector-2026.08.20-02.48.05.log
+
+Setting temp directory to 'C:\Users\HASEE\AppData\Local\Temp\UnrealBuildTool\9fe8a91e'
+    Registering build platform: UnrealBuildTool.AndroidPlatformFactory
+    Registering build platform: UnrealBuildTool.IOSPlatformFactory
+    Registering build platform: UnrealBuildTool.LinuxPlatformFactory
+    Registering build platform: UnrealBuildTool.MacPlatformFactory
+    Registering build platform: UnrealBuildTool.TVOSPlatformFactory
+    Registering build platform: UnrealBuildTool.WindowsPlatformFactory
+Found Windows 10 SDK root at D:\Windows Kits\10 (1)
+Found Windows 10 SDK root at D:\Windows Kits\10 (2)
+Found Windows 10 SDK version 10.0.22621.0 at D:\Windows Kits\10
+Found Universal CRT version 10.0.22621.0 at D:\Windows Kits\10
+Found Windows 10 SDK version 10.0.26100.0 at D:\Windows Kits\10
+Found Universal CRT version 10.0.26100.0 at D:\Windows Kits\10
+Win64 Installed SDK(s): MinVersion_Sdk=10.0.19041.0, MaxVersion_Sdk=10.9.99999.0, CurrentVersion_Sdk=10.0.22621.0, Version_AutoSdk=10.0.22621.0, CurrentVersion_AutoSdk=
+        Registering build platform: Win64 - buildable: True
+    Registering build platform: UnrealBuildTool.VisionOSPlatformFactory
+Resolved project argument G:/GitHub/myproject/StellarSystem.uproject to G:\GitHub\myproject\StellarSystem.uproject
+Reading configuration file from cache (G:\GitHub\myproject\Intermediate\Build\XmlConfigCache.bin): C:\Users\HASEE\AppData\Roaming\Unreal Engine\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (G:\GitHub\myproject\Intermediate\Build\XmlConfigCache.bin): G:\GitHub\myproject\Saved\UnrealBuildTool\BuildConfiguration.xml
+Reading configuration file from cache (G:\GitHub\myproject\Intermediate\Build\XmlConfigCache.bin): C:\Users\HASEE\AppData\Local\UnrealEngine\Intermediate\Build\UnrealBuildTool.Env.BuildConfiguration.xml
+Registering project generator UnrealBuildTool.AndroidProjectGenerator for Android
+Skipping project file generator registration for Android due to no valid BuildPlatform.
+Registering project generator UnrealBuildTool.IOSProjectGenerator for IOS
+Skipping project file generator registration for IOS due to no valid BuildPlatform.
+Registering project generator UnrealBuildTool.LinuxProjectGenerator for Linux
+Skipping project file generator registration for Linux due to no valid BuildPlatform.
+Registering project generator UnrealBuildTool.LinuxProjectGenerator for LinuxArm64
+Skipping project file generator registration for LinuxArm64 due to no valid BuildPlatform.
+Registering project generator UnrealBuildTool.MacProjectGenerator for Mac
+Skipping project file generator registration for Mac due to no valid BuildPlatform.
+Registering project generator UnrealBuildTool.TVOSProjectGenerator for TVOS
+Skipping project file generator registration for TVOS due to no valid BuildPlatform.
+Registering project generator UnrealBuildTool.WindowsProjectGenerator for Win64
+Registering project generator UnrealBuildTool.VisionOSProjectGenerator for VisionOS
+Skipping project file generator registration for VisionOS due to no valid BuildPlatform.
+
+---   SDK INFO START   ---
+---   SDK INFO END   ---
+
+
+Generating VisualStudio project files:
+Discovering modules, targets and source code for project...
+Updating D:\Program Files\Epic Games\UE_5.7\Engine\Intermediate\ProjectFiles\PrimaryProjectName.txt: contents have changed. Saving previous version to D:\Program Files\Epic Games\UE_5.7\Engine\Intermediate\ProjectFiles\PrimaryProjectName.txt.old.
+Updating D:\Program Files\Epic Games\UE_5.7\Engine\Intermediate\ProjectFiles\PrimaryProjectPath.txt: contents have changed. Saving previous version to D:\Program Files\Epic Games\UE_5.7\Engine\Intermediate\ProjectFiles\PrimaryProjectPath.txt.old.
+Found VisualStudio2026 installation: D:\Program Files\Microsoft Visual Studio\18\Enterprise (Product=Microsoft.VisualStudio.Product.Enterprise, Version=18.1.11312.151)
+Found Visual Studio toolchain: D:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Tools\MSVC\14.38.33130 (Family=14.38.33130, FamilyRank=1, Version=14.38.33145, HostArchitecture=x64, ReleaseChannel=Latest, Architecture=x64, Error=False, Redist=D:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Redist\MSVC\14.38.33130)
+Found Visual Studio toolchain: D:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Tools\MSVC\14.44.35207 (Family=14.44.35207, FamilyRank=0, Version=14.44.35221, HostArchitecture=x64, ReleaseChannel=Latest, Architecture=x64, Error=False, Redist=D:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Redist\MSVC\14.50.35710)
+Found Visual Studio toolchain: D:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Tools\MSVC\14.50.35717 (Family=14.50.35717, FamilyRank=1, Version=14.50.35721, HostArchitecture=x64, ReleaseChannel=Latest, Architecture=x64, Error=False, Redist=D:\Program Files\Microsoft Visual Studio\18\Enterprise\VC\Redist\MSVC\14.50.35710)
+Detected supported platforms: Win64
+Adding projects for all targets...
+Skipping D:\Program Files\Epic Games\UE_5.7\Engine\Intermediate\Build\BuildRules\UE5Rules.dll: File is installed
+Skipping D:\Program Files\Epic Games\UE_5.7\Engine\Intermediate\Build\BuildRules\UE5ProgramRules.dll: File is installed
+Compiling G:\GitHub\myproject\Intermediate\Build\BuildRules\StellarSystemModuleRules.dll: Assembly does not exist
+G:\GitHub\myproject\Source\StellarSystemEditor.Target.cs(26,9): error CS0103: The name 'bUseUnity' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystemEditor.Target.cs(27,9): error CS0103: The name 'bUseParallelCompiler' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystemEditor.Target.cs(28,9): error CS0103: The name 'OptimizeCode' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystemEditor.Target.cs(28,24): error CS0103: The name 'CodeOptimization' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystemWeGame.Target.cs(20,9): error CS0103: The name 'bUseLTCG' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystemWeGame.Target.cs(24,9): warning CS0618: 'TargetRules.bBuildEditor.set' is obsolete: 'Deprecated, replace with TargetRules.Type'
+G:\GitHub\myproject\Source\StellarSystemIOS.Target.cs(17,9): error CS0103: The name 'bEnableExceptions' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystemAndroid.Target.cs(17,9): error CS0103: The name 'bEnableExceptions' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystemClient.Target.cs(25,9): error CS0103: The name 'bUseUnity' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystemClient.Target.cs(26,9): error CS0103: The name 'bUseParallelCompiler' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystemClient.Target.cs(27,9): error CS0103: The name 'bEnableExceptions' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystemClient.Target.cs(33,13): error CS0103: The name 'OptimizeCode' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystemClient.Target.cs(33,28): error CS0103: The name 'CodeOptimization' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystemClient.Target.cs(34,13): error CS0103: The name 'bUseLTO' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystemClient.Target.cs(39,13): error CS0103: The name 'OptimizeCode' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystemClient.Target.cs(39,28): error CS0103: The name 'CodeOptimization' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystemMobile.Target.cs(17,9): error CS0103: The name 'bEnableExceptions' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystemServer.Target.cs(25,9): error CS0103: The name 'bUseUnity' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystemServer.Target.cs(26,9): error CS0103: The name 'bUseParallelCompiler' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystemServer.Target.cs(27,9): error CS0103: The name 'bEnableExceptions' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystemServer.Target.cs(29,9): warning CS0618: 'TargetRules.bBuildEditor.set' is obsolete: 'Deprecated, replace with TargetRules.Type'
+G:\GitHub\myproject\Source\StellarSystemServer.Target.cs(37,13): error CS0103: The name 'OptimizeCode' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystemServer.Target.cs(37,28): error CS0103: The name 'CodeOptimization' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystemServer.Target.cs(38,13): error CS0103: The name 'bUseLTO' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystemServer.Target.cs(43,13): error CS0103: The name 'OptimizeCode' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystemServer.Target.cs(43,28): error CS0103: The name 'CodeOptimization' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystem\StellarSystem.Build.cs(133,34): error CS0103: The name 'Path' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystem\StellarSystem.Build.cs(134,17): error CS0103: The name 'Directory' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystem\StellarSystem.Build.cs(136,40): error CS0103: The name 'Path' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystem\StellarSystem.Build.cs(137,47): error CS0103: The name 'Path' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystem\StellarSystem.Build.cs(139,41): error CS0103: The name 'Path' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystem\StellarSystem.Build.cs(238,17): error CS0103: The name 'AdditionalLinkerArguments' does not exist in the current context
+G:\GitHub\myproject\Source\StellarSystem\StellarSystem.Build.cs(242,17): error CS0103: The name 'AdditionalLinkerArguments' does not exist in the current context
+Adding projects for all targets took 3.26s
+Expecting to find a type to be declared in a target rules named 'StellarSystemAndroidTarget'.  This type must derive from the 'TargetRules' type defined by UnrealBuildTool.
+CompilationResultException: Expecting to find a type to be declared in a target rules named 'StellarSystemAndroidTarget'.  This type must derive from the 'TargetRules' type defined by UnrealBuildTool.
+   at UnrealBuildBase.Parallel2.ForEach[TSource](IEnumerable`1 source, Action`1 body, Int32 helperCount, Boolean useTasks)
+   at UnrealBuildTool.ProjectFileGenerator.AddProjectsForAllTargets(PlatformProjectGeneratorCollection PlatformProjectGenerators, List`1 AllGames, List`1 AllTargetFiles, String[] Arguments, List`1 EngineProjects, List`1 GameProjects, Dictionary`2 ProjectFileToUProjectFile, Dictionary`2 ProgramProjects, Dictionary`2 RulesAssemblies, ILogger Logger)
+   at UnrealBuildTool.ProjectFileGenerator.GenerateProjectFiles(PlatformProjectGeneratorCollection PlatformProjectGenerators, String[] Arguments, ILogger Logger)
+   at UnrealBuildTool.GenerateProjectFilesMode.ExecuteAsync(CommandLineArguments Arguments, ILogger Logger)
+   at UnrealBuildTool.UnrealBuildTool.Main(String[] ArgumentsArray)
+WriteFileIfChanged() wrote 2 changed files of 4 requested writes.
+
+Result: Failed (RulesError)
+Total execution time: 5.17 seconds
